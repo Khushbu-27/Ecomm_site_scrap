@@ -40,7 +40,7 @@ class BookscraperSpider(CrawlSpider):
             "rating": response.xpath("//*[@id='content_inner']/article/div[1]/div[2]/p[ contains(@class, 'star-rating')]/@class").get(),
             "desc": response.xpath("//*[@id='content_inner']/article/p/text()").get(),
             # "UPC": response.css("content_inner.article table.tbody.tr:nth-child(1).td::text").get(),
-            # "product_type": response.xpath("//*[@id='content_inner']/article/table/tbody/tr[2]/td/text()").get(),
+            
         }
         
 def send_email():
@@ -70,7 +70,6 @@ process = CrawlerProcess(settings={
 process.crawl(BookscraperSpider)    
 process.start()
 send_email()
-
 
 
  #
